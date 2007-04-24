@@ -1,0 +1,13 @@
+GridLab
+maps/europe_us_nl_adam_map.gif
+Leiden   64 commandlineSshPrun fs1.das2.liacs.nl         450 158
+VU      144 commandlineSshPrun fs0.das2.cs.vu.nl         450 132
+Nikhef   64 commandlineSshPrun fs2.das2.nikhef.nl        475 100
+Delft    64 commandlineSshPrun fs3.das2.ewi.tudelft.nl   430 180
+Utrecht  64 commandlineSshPrun fs4.das2.phys.uu.nl       500 140
+Louisiana 4 globus mike4.cct.lsu.edu         197 400
+Poznan    1 globus rage1.man.poznan.pl       790 246
+PC_2   1 commandlineSsh ibisdemo2       420 450
+PC_3   1 commandlineSsh ibisdemo3       500 450
+PC_4   2 commandlineSsh ibisdemo4       420 490
+MAC_5  1 commandlineSsh ibisdemo5       500 490

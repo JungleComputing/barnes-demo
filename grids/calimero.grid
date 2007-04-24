@@ -1,0 +1,6 @@
+Ibis Demo Grid
+maps/adam3030.jpg
+PC_2   1 commandlineSsh ibisdemo2                 430 430
+PC_3   1 commandlineSsh ibisdemo3                 500 430
+PC_4   2 commandlineSsh ibisdemo4                 430 470
+MAC_5  1 commandlineSsh ibisdemo5                 500 470
