@@ -1,0 +1,22 @@
+#!/bin/sh
+
+add_to_gat_classpath () {
+	DIRLIBS=${1}/*.jar
+	for i in ${DIRLIBS}
+	do
+		 # if the directory is empty, then it will return the input string
+		 # this is stupid, so case for it
+		 if [ "$i" != "${DIRLIBS}" ] ; then
+			if [ -z "$GAT_CLASSPATH" ] ; then
+		GAT_CLASSPATH=$i
+			else
+		GAT_CLASSPATH="$i":$GAT_CLASSPATH
+			fi
+		 fi
+	done
+}
+
+add_to_gat_classpath lib/JavaGAT
+add_to_gat_classpath lib/gridRunner
+
+java -Dgat.verbose -cp $CLASSPATH:$GAT_CLASSPATH -Dgat.adaptor.path=lib/JavaGAT/adaptors gridRunner.GridRunner $*

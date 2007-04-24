@@ -1,0 +1,12 @@
+rm -f lib/gridRunner/*.jar
+cd ../gridRunner; ant; cd -
+cp ../gridRunner/lib/gridRunner.jar lib/gridRunner
+
+rm -f applications/*.app
+cp ../gridRunner/applications/* applications
+
+rm -f grids/*.grid
+cp ../gridRunner/grids/* grids
+
+rm -f maps/*.jpg maps/*.gif
+cp ../gridRunner/maps/* maps

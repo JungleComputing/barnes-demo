@@ -1,0 +1,6 @@
+bin/sync-barnes fs0.das2.cs.vu.nl &
+bin/sync-barnes fs1.das2.liacs.nl &
+bin/sync-barnes fs2.das2.nikhef.nl &
+bin/sync-barnes fs3.das2.ewi.tudelft.nl &
+bin/sync-barnes fs4.das2.phys.uu.nl &
+wait

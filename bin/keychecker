@@ -1,0 +1,1 @@
+java -cp lib/ibis.jar:lib/ibis-connect.jar:lib/ibis-util.jar:lib/log4j-1.2.9.jar ibis.impl.nameServer.tcp.KeyChecker $*

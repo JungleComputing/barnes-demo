@@ -1,0 +1,5 @@
+bin/sync-barnes ibisdemo2 &
+bin/sync-barnes ibisdemo3 &
+bin/sync-barnes ibisdemo4 &
+bin/sync-barnes ibisdemo5 &
+wait

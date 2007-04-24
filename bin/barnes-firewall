@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -f $HOME/.bashrc ]
+then
+    source $HOME/.bashrc
+fi
+
+# for the calimero cluster
+DEMO=$HOME/barnes-demo
+NAMESERVER=mars.cs.vu.nl
+
+# for local runs:
+#DEMO=$HOME/workspace/barnes-demo
+
+LIB=$DEMO/lib
+exec java -cp $LIB/barnes.jar:$LIB/ibis.jar:$LIB/ibis-util.jar:$LIB/ibis-connect.jar:$LIB/log4j-1.2.9.jar \
+  -Dibis.name_server.host=$NAMESERVER \
+  -Dibis.name_server.key=$1 \
+  -Dibis.connect.control_links=RoutedMessages \
+  -Dibis.connect.data_links=AnyTCP \
+  -Dsatin.ft -Dsatin.ft.connectTimeout=10 -Dsatin.so \
+  -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \
+   BarnesHut \
+  -float -dt 0.03125 -it 500000 -eps 0.025 -theta 5 -so -remote-viz -min 64 -input $DEMO/data/Data.16385 8000 32

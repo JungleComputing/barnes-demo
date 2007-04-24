@@ -1,0 +1,8 @@
+echo copying JavaGAT from $GAT_LOCATION
+
+cd $GAT_LOCATION
+ant
+cp engine/lib/*.jar $BARNES_DEMO_HOME/lib/JavaGAT
+cp adaptors/lib/*.jar $BARNES_DEMO_HOME/lib/JavaGAT/adaptors
+
+cd -
