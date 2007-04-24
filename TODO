@@ -1,0 +1,22 @@
+viz
+---
+deeltjes verdwijnen soms, staart niet
+DONE: progressief zoomen (uitzoomen gaat op een gegeven moment te langzaam)
+DONE transleren
+schaal goed bij vergroten window
+DONE: informatie over barnes printen: pfs, iteraties/s, etc.
+
+DONE boven grafiek titel zetten: iterations per second
+DONE schaal ook in niet 10 tallen laten schalen
+
+redraw als er iets over het canvas heen komt / weg gaat
+
+barnes
+------
+
+gridRunner
+----------
+
+gat
+---
+DONE prun over ssh adaptor
