@@ -1,5 +1,6 @@
 echo copying ibis from $IBIS_HOME
 
+rm lib/ibis/*.jar
 cd $IBIS_HOME;ant clean; ant
 cp lib/*.jar ../barnes-demo/lib/ibis
 
