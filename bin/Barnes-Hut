@@ -30,7 +30,9 @@ add_to_my_classpath barnes
 exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dibis.registry.serverAddress=$REGISTRY \
   -Dibis.registry.pool=$KEY \
-  -Dsatin.ft.connectTimeout=2 \
+  -Dibis.registry.central.pingInterval=1000 \
+  -Dsatin.stealWaitTimeout=5 \
+  -Dsatin.ft.connectTimeout=5 \
   -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \
    BarnesHut \
   -float -dt 0.03125 -it 500000 -eps 0.025 -theta 5 -remote-viz -min 64 -input D8 8000 32
