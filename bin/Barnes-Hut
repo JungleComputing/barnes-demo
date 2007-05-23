@@ -24,12 +24,14 @@ add_to_my_classpath () {
 	done
 }
 
-add_to_my_classpath lib/ibis
-add_to_my_classpath lib/barnes
+add_to_my_classpath ibis
+add_to_my_classpath barnes
+
+ls -l
 
 exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
-  -Dibis.registry.serverAddress=$REGISTRY \
-  -Dibis.registry.pool=$KEY \
+  -Dibis.server.address=$REGISTRY \
+  -Dibis.pool.name=$KEY \
   -Dibis.ipl.impl.tcp.smartsockets=true \
   -Dibis.registry.central.pingInterval=1000 \
   -Dsatin.stealWaitTimeout=5 \

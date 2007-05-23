@@ -2,4 +2,4 @@
 
 # ibis-registry-server script.
 
-. bin/ibis-run ibis.ipl.impl.registry.Server "$@"
+. bin/ibis-run ibis.server.Server "$@"
