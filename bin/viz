@@ -1,3 +1,20 @@
 HOSTNAME=$1
 shift
-java -Xmx128M -Xms64M -Djava.library.path=:./lib/viz/native: -cp ./lib/viz/jogl.jar:./lib/viz/barnes-viz.jar -Dnbody.host=$HOSTNAME viz.Visualization Ibis $*
+
+# Jar-files from library.
+LIBCLASSPATH=""
+add_to_libclasspath () {
+    JARFILES=`cd "$1" && ls *.jar 2>/dev/null`
+    for i in ${JARFILES} ; do
+        if [ -z "$LIBCLASSPATH" ] ; then
+            LIBCLASSPATH="$1/$i"
+        else
+            LIBCLASSPATH="$LIBCLASSPATH:$1/$i"
+        fi
+    done
+}
+
+add_to_libclasspath lib/ibis
+add_to_libclasspath lib/viz
+
+java -Xmx128M -Xms64M -Djava.library.path=:./lib/viz/native: -cp $LIBCLASSPATH:. -Dnbody.host=$HOSTNAME viz.Visualization Ibis $*
