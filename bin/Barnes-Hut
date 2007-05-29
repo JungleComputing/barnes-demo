@@ -38,4 +38,4 @@ exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dsatin.ft.connectTimeout=5 \
   -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \
    BarnesHut \
-  -float -dt 0.03125 -it 500000 -eps 0.025 -theta 5 -remote-viz -min 64 -input D10 8000 32
+  -float -dt 0.03125 -it 500000 -eps 0.025 -theta 5 -remote-viz -min 64 -input D11 8000 32
