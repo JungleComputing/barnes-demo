@@ -27,7 +27,7 @@ add_to_my_classpath () {
 add_to_my_classpath ibis
 add_to_my_classpath barnes
 
-ls -l
+ls -lR
 
 exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dibis.server.address=$REGISTRY \
