@@ -1,8 +1,11 @@
 echo copying JavaGAT from $GAT_LOCATION
 
+rm -f $BARNES_DEMO_HOME/lib/JavaGAT/*.jar
+rm -f $BARNES_DEMO_HOME/lib/JavaGAT/adaptors/*.jar
+
 cd $GAT_LOCATION
 ant
-cp engine/lib/*.jar $BARNES_DEMO_HOME/lib/JavaGAT
-cp adaptors/lib/*.jar $BARNES_DEMO_HOME/lib/JavaGAT/adaptors
+cp lib/*.jar $BARNES_DEMO_HOME/lib/JavaGAT
+cp lib/adaptors/*.jar $BARNES_DEMO_HOME/lib/JavaGAT/adaptors
 
 cd -
