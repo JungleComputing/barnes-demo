@@ -1,7 +1,8 @@
 DAS-3
 maps/nederland.gif
-VU          340 globus fs0.das3.cs.vu.nl         296 337
-Leiden       64 globus fs1.das3.liacs.nl         225 395
-UvA         164 globus fs2.das3.science.uva.nl   286 305
-Delft       136 globus fs3.das3.tudelft.nl       204 435
-Multimedian  92 globus fs4.das3.science.uva.nl   316 280
+VU          340 globus fs0.das3.cs.vu.nl        fs0.das3.cs.vu.nl/jobmanager-sge DEFAULT 296 337
+Leiden       64 globus fs1.das3.liacs.nl        fs1.das3.liacs.nl/jobmanager-sge DEFAULT 225 395
+UvA         164 globus fs2.das3.science.uva.nl  fs2.das3.science.uva.nl/jobmanager-sge DEFAULT 286 305
+Delft       136 globus fs3.das3.tudelft.nl      fs3.das3.tudelft.nl/jobmanager-sge DEFAULT 204 435
+Multimedian  92 globus fs4.das3.science.uva.nl  fs4.das3.science.uva.nl/jobmanager-sge DEFAULT 316 280
+Matrix       40 globus mu6.matrix.sara.nl       mu6.matrix.sara.nl/jobmanager-pbs short   316 230
