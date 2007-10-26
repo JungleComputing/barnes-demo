@@ -1,1 +1,1 @@
-java -Xmx128M -Xms64M -Djava.library.path=:./lib/viz/native: -cp ./lib/viz/jogl.jar:./lib/viz/barnes-viz.jar -Dnbody.host=$1 -Dnbody.port=9889 viz.Visualization -no-graph $*
+java -Xmx128M -Xms64M -Djava.library.path=:$BARNES_DEMO_HOME/lib/viz/native: -cp $BARNES_DEMO_HOME/lib/viz/jogl.jar:$BARNES_DEMO_HOME/lib/viz/barnes-viz.jar -Dnbody.host=$1 -Dnbody.port=9889 viz.Visualization -no-graph $*

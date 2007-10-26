@@ -1,8 +1,8 @@
 echo copying barnes from $IBIS_APPS_HOME
 
 cd $IBIS_APPS_HOME/satin/barnes
-ant jar
-cp barnes.jar $BARNES_DEMO_HOME/lib/barnes
+ant
+cp lib/barnes.jar $BARNES_DEMO_HOME/lib/barnes
 
 rm -f $BARNES_DEMO_HOME/data/* 
 cp data/* $BARNES_DEMO_HOME/data

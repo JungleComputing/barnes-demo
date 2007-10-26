@@ -25,7 +25,7 @@ add_to_my_classpath () {
 	done
 }
 
-add_to_my_classpath ibis
+add_to_my_classpath satin
 add_to_my_classpath barnes
 
 ls -lR
