@@ -34,8 +34,7 @@ exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dibis.server.address=$REGISTRY \
   -Dibis.pool.name=$KEY \
   -Dibis.location=$CLUSTER \
-  -Dibis.ipl.impl.tcp.smartsockets=true \
-  -Dibis.registry.central.ping.interval=1 \
+  -Dibis.registry.central.heartbeat.interval=2 \
   -Dsatin.stealWaitTimeout=5 \
   -Dsatin.ft.connectTimeout=5 \
   -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \

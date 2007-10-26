@@ -1,5 +1,5 @@
 bin/update_gat
 bin/update_gridRunner
-bin/update_ibis
+bin/update_satin
 bin/update_barnes
 bin/update_viz
