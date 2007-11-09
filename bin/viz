@@ -17,4 +17,4 @@ add_to_libclasspath () {
 add_to_libclasspath lib/satin
 add_to_libclasspath lib/viz
 
-java -Dibis.verbose -Xmx128M -Xms64M -Djava.library.path=:./lib/viz/native: -cp $LIBCLASSPATH:. -Dnbody.host=$HOSTNAME viz.Visualization Ibis $*
+java -Xmx128M -Xms64M -Djava.library.path=:./lib/viz/native: -cp $LIBCLASSPATH:. -Dnbody.host=$HOSTNAME viz.Visualization Ibis $*
