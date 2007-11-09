@@ -30,6 +30,7 @@ add_to_my_classpath barnes
 
 ls -lR
 
+# this is a good problem for DAS3 demos
 exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dibis.server.address=$REGISTRY \
   -Dibis.pool.name=$KEY \
@@ -37,6 +38,21 @@ exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
   -Dibis.registry.central.heartbeat.interval=2 \
   -Dsatin.stealWaitTimeout=5 \
   -Dsatin.ft.connectTimeout=5 \
+  -Dsatin.so.waitTime=1 \
   -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \
    BarnesHut \
-  -float -dt 0.03125 -it 500000 -eps 0.025 -theta 5 -remote-viz -min 64 -input D11 8000 32
+  -fulltree -float -dt 0.03125 -it 500000 -eps 0.025 -theta 15000 -remote-viz -min 1 -input D11 8000 64
+
+# this is a good problem for DAS3 demos
+# bigger, but sscales quite well
+exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
+#   -Dibis.server.address=$REGISTRY \
+#   -Dibis.pool.name=$KEY \
+#   -Dibis.location=$CLUSTER \
+#   -Dibis.registry.central.heartbeat.interval=2 \
+#   -Dsatin.stealWaitTimeout=5 \
+#   -Dsatin.ft.connectTimeout=5 \
+#   -Dsatin.so.waitTime=1 \
+#   -Dibis.io.buffer.size=8192 -Xms64M -Xmx128M \
+#    BarnesHut \
+#   -ntc -float -dt 0.03125 -it 500000 -eps 0.025 -theta 10 -remote-viz -min 1 -input Data.20000 8000 64
