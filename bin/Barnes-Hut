@@ -45,7 +45,7 @@ exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
 
 # this is a good problem for DAS3 demos
 # bigger, but sscales quite well
-exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
+# exec $JAVA_HOME/bin/java -cp $MY_CLASSPATH:. \
 #   -Dibis.server.address=$REGISTRY \
 #   -Dibis.pool.name=$KEY \
 #   -Dibis.location=$CLUSTER \
