@@ -31,7 +31,7 @@ BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.
 BarnesViz.main.class = viz.Visualization
 BarnesViz.arguments = Ibis
 BarnesViz.libs = lib-server,lib-viz
-BarnesViz.input.files =
+#BarnesViz.input.files =
 #BarnesViz.output.files =
 BarnesViz.system.properties = java.library.path=lib-viz/native,
 #BarnesViz.java.options =
