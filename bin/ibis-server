@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# ibis-registry-server script.
-
-bin/ibis-run ibis.ipl.server.Server "$@"
