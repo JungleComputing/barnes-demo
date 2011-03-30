@@ -50,21 +50,21 @@ VUDAS3.longitude = 4.872222
 #VUDAS3.node.hostnames = 
 
 # Details of cluster "VUDAS4"
-VUDAS4.server.adaptor = SshTrilead
-VUDAS4.server.uri = any://fs0.das4.cs.vu.nl
-VUDAS4.job.adaptor = SshTrilead
-VUDAS4.job.uri = any://fs0.das4.cs.vu.nl/jobmanager-sge
-VUDAS4.file.adaptors = Local,SshTrilead
-VUDAS4.java.path = /usr/lib/jvm/java-openjdk/bin/java
-VUDAS4.job.wrapper.script = barnes-workspace/das4.script
-VUDAS4.cache.dir = default-deploy-cache
+#VUDAS4.server.adaptor = SshTrilead
+#VUDAS4.server.uri = any://fs0.das4.cs.vu.nl
+#VUDAS4.job.adaptor = SshTrilead
+#VUDAS4.job.uri = any://fs0.das4.cs.vu.nl/jobmanager-sge
+#VUDAS4.file.adaptors = Local,SshTrilead
+#VUDAS4.java.path = /usr/lib/jvm/java-openjdk/bin/java
+#VUDAS4.job.wrapper.script = barnes-workspace/das4.script
+#VUDAS4.cache.dir = default-deploy-cache
 #VUDAS4.server.output.files =
 #VUDAS4.server.system.properties =
-VUDAS4.nodes = 72
-VUDAS4.cores = 576
+#VUDAS4.nodes = 72
+#VUDAS4.cores = 576
 #VUDAS4.memory = 
-VUDAS4.latitude = 52.336062
-VUDAS4.longitude = 4.872222
+#VUDAS4.latitude = 52.336062
+#VUDAS4.longitude = 4.872222
 #VUDAS4.start.zorilla = 
 #VUDAS4.node.hostnames = 
 
