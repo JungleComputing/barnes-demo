@@ -1,0 +1,15 @@
+<project name="barnes-demo" default="build" basedir=".">
+    <description>
+	Build file for barnes demo
+    </description>
+
+    <target name="build">
+	<ant dir="barnes-src" inheritAll="false" target="build"/>
+	<ant dir="viz-src" inheritAll="false" target="build"/>
+    </target>
+
+    <target name="clean">
+	<ant dir="barnes-src" inheritAll="false" target="clean"/>
+	<ant dir="viz-src" inheritAll="false" target="clean"/>
+    </target>
+</project>

@@ -1,6 +1,6 @@
 <project
     name="barnes"
-    default="jar"
+    default="build"
     basedir=".">
 
     <property name="satin-classes" value="BarnesHut,BodiesSO"/>
@@ -57,12 +57,7 @@
 	</java>
     </target>
 
-
-    <target name="build"
-	description="Compile Satin application for parallel execution"
-	depends="compile,satin"/>
-
-    <target name="jar" depends="build" description="Build a Jar file for an application">
+    <target name="build" depends="compile,satin" description="Compile, rewrite, uild barnes jar">
 	<jar destfile="${lib}/barnes.jar" basedir="${tmp}" includes="**/*.class"/>
         <delete dir="${tmp}" />
     </target>
