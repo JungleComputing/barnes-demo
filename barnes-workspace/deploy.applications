@@ -28,12 +28,17 @@ BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.
 #BarnesRun1.memory.size =
 
 # Application "BarnesViz"
+# Note: as described here, it only works locally.
 BarnesViz.main.class = viz.Visualization
 BarnesViz.arguments = Ibis
 BarnesViz.libs = lib-server,lib-viz
 #BarnesViz.input.files =
 #BarnesViz.output.files =
-BarnesViz.system.properties = java.library.path=lib-viz/native,
+BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-linux-64,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-macosx,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-32,
+#No windows-64 files available ...
 #BarnesViz.java.options =
 #BarnesViz.log4j.file =
 #BarnesViz.memory.size =
