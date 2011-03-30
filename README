@@ -1,0 +1,8 @@
+Before running, you have to do two things:
+
+1. run "ant".
+
+2. In barnes-workspace/deploy.applications, choose the correct java.library.path
+   for your java version (all available options are mentioned).
+
+Good luck!
