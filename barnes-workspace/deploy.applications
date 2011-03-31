@@ -38,7 +38,7 @@ BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
 #BarnesViz.system.properties = java.library.path=lib-viz/native-linux-64,
 #BarnesViz.system.properties = java.library.path=lib-viz/native-macosx,
 #BarnesViz.system.properties = java.library.path=lib-viz/native-windows-32,
-#No windows-64 files available ...
+#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-64,
 #BarnesViz.java.options =
 #BarnesViz.log4j.file =
 #BarnesViz.memory.size =
