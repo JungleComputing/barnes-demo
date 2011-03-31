@@ -1,1 +1,1 @@
-bin\ibis-deploy-gui -s VUDAS3 barnes-workspace
+bin\ibis-deploy-gui -r barnes-workspace
