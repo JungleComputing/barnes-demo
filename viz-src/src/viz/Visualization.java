@@ -16,16 +16,17 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.InputStream;
 
-import javax.media.opengl.GL;
+import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
-import javax.media.opengl.GLCanvas;
 import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.GLEventListener;
+import javax.media.opengl.GLProfile;
+import javax.media.opengl.awt.GLCanvas;
 import javax.swing.JFrame;
 
-import com.sun.opengl.util.Animator;
-import com.sun.opengl.util.texture.Texture;
-import com.sun.opengl.util.texture.TextureIO;
+import com.jogamp.opengl.util.Animator;
+import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureIO;
 
 public class Visualization implements GLEventListener, MouseListener,
         MouseMotionListener, MouseWheelListener, KeyListener {
@@ -120,7 +121,9 @@ public class Visualization implements GLEventListener, MouseListener,
     }
 
     private void initScreen() {
-        GLCapabilities glCaps = new GLCapabilities();
+    	GLProfile glp = GLProfile.get(GLProfile.GL2);
+		GLCapabilities glCaps = new GLCapabilities(glp);
+		
         glCaps.setRedBits(8);
         glCaps.setBlueBits(8);
         glCaps.setGreenBits(8);
@@ -171,9 +174,9 @@ public class Visualization implements GLEventListener, MouseListener,
     }
 
     public void init(GLAutoDrawable glDrawable) {
-        GL gl = glDrawable.getGL();//Get the GL object from glDrawable
+        GL2 gl = glDrawable.getGL().getGL2();//Get the GL2 object from glDrawable
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        gl.glShadeModel(GL.GL_FASTEST);
+        gl.glShadeModel(GL2.GL_FASTEST);
 
         // Load the texture for the bodies...
         try {
@@ -192,23 +195,23 @@ public class Visualization implements GLEventListener, MouseListener,
         }
     }
 
-    private void drawBodies(GL gl) {
+    private void drawBodies(GL2 gl) {
 
         float quadratic[] = { 0.0f, 0.0f, 0.01f };
 
-        gl.glPointParameterfvARB(GL.GL_POINT_DISTANCE_ATTENUATION, quadratic, 0);
-        gl.glPointParameterfARB(GL.GL_POINT_SIZE_MAX_ARB, particleSizeMax);
-        gl.glPointParameterfARB(GL.GL_POINT_SIZE_MIN_ARB, particleSizeMin);
+        gl.glPointParameterfv(GL2.GL_POINT_DISTANCE_ATTENUATION, quadratic, 0);
+        gl.glPointParameterf(GL2.GL_POINT_SIZE_MAX, particleSizeMax);
+        gl.glPointParameterf(GL2.GL_POINT_SIZE_MIN, particleSizeMin);
 
         gl.glPointSize(particleSizeMax);
 
-        gl.glTexEnvf(GL.GL_POINT_SPRITE_ARB, GL.GL_COORD_REPLACE_ARB,
-                GL.GL_TRUE);
+        gl.glTexEnvf(GL2.GL_POINT_SPRITE, GL2.GL_COORD_REPLACE,
+                GL2.GL_TRUE);
 
-        gl.glEnable(GL.GL_POINT_SPRITE_ARB);
+        gl.glEnable(GL2.GL_POINT_SPRITE);
 
-        gl.glEnable(GL.GL_BLEND);
-        gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE);
+        gl.glEnable(GL2.GL_BLEND);
+        gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE);
 
         snapshot = history.getSnapShot();
         if(snapshot == null) return;
@@ -239,7 +242,7 @@ public class Visualization implements GLEventListener, MouseListener,
             initColors(bodyCount);
         }
 
-        gl.glBegin(GL.GL_POINTS);
+        gl.glBegin(GL2.GL_POINTS);
 
         for (int i = 0; i < bodyCount; i += 3) {
             gl.glColor3fv(colors, i);
@@ -248,7 +251,7 @@ public class Visualization implements GLEventListener, MouseListener,
 
         gl.glEnd();
 
-        gl.glDisable(GL.GL_POINT_SPRITE_ARB);
+        gl.glDisable(GL2.GL_POINT_SPRITE);
 
         if (texture != null && SHOW_TAILS) {
             texture.disable();
@@ -260,7 +263,7 @@ public class Visualization implements GLEventListener, MouseListener,
 
             for (int i = 0; i < bodyCount; i += 3) {
 
-                gl.glBegin(GL.GL_LINE_STRIP);
+                gl.glBegin(GL2.GL_LINE_STRIP);
 
                 int index = 0;
                 int max = snapshot.history.length;
@@ -280,15 +283,15 @@ public class Visualization implements GLEventListener, MouseListener,
 
     }
 
-    private void drawLines(GL gl) {
+    private void drawLines(GL2 gl) {
 
         gl.glLineWidth(2.0f);
 
-        gl.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+        gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
 
         gl.glColor4f(0.2f, 0.2f, 0.8f, 0.8f);
 
-        gl.glBegin(GL.GL_LINES);
+        gl.glBegin(GL2.GL_LINES);
 
         float x = (float) maxX;
         float y = (float) maxY;
@@ -336,13 +339,13 @@ public class Visualization implements GLEventListener, MouseListener,
         gl.glEnd();
     }
 
-    private void rotate(GL gl) {
+    private void rotate(GL2 gl) {
         // This rotates the model
         synchronized (this) {
             haveRotation = false;
         }
 
-        gl.glMatrixMode(GL.GL_PROJECTION);
+        gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
         //gl.glOrtho(-1.5, 1.5, -1.5, 1.5, -1.5, 1.5);
         gl.glOrtho(zoom * 20.0 * minX, zoom * 20.0 * maxX, zoom * 20.0 * minY,
@@ -351,7 +354,7 @@ public class Visualization implements GLEventListener, MouseListener,
         //GLU glu = new GLU();
         //glu.gluPerspective(5.0*zoom, 1.0, 100, -100);
 
-        gl.glMatrixMode(GL.GL_MODELVIEW);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
         gl.glRotatef(view_rotz, 0, 0, 1);//We rotate in the eye-to-world part
         gl.glRotatef(view_roty, 0, 1, 0);//We rotate in the eye-to-world part
@@ -377,8 +380,8 @@ public class Visualization implements GLEventListener, MouseListener,
         boolean goodReason = getRotation() || history.haveNewBodies();
 
         if (goodReason || showCount > 0) {
-            GL gl = glDrawable.getGL();
-            gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+            GL2 gl = glDrawable.getGL().getGL2();
+            gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
 
             rotate(gl);
             //            drawLines(gl);            
@@ -613,4 +616,10 @@ public class Visualization implements GLEventListener, MouseListener,
         history.reset();
         info.reset();
     }
+
+	@Override
+	public void dispose(GLAutoDrawable arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }
