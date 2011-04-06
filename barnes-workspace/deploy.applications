@@ -22,7 +22,7 @@ BarnesRun1.arguments = -so,-remote-viz,-dt,0.03125,-it,50000,-eps,0.025,-theta,1
 BarnesRun1.libs = lib-server,lib-satin,lib-barnes
 BarnesRun1.input.files = data/help-251-2.data,ibis.properties
 #BarnesRun1.output.files =
-BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,
+BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,ibis.managementclient=true,ibis.bytescount=true,
 #BarnesRun1.java.options =
 #BarnesRun1.log4j.file =
 #BarnesRun1.memory.size =
@@ -34,11 +34,11 @@ BarnesViz.arguments = Ibis
 BarnesViz.libs = lib-server,lib-viz
 #BarnesViz.input.files =
 #BarnesViz.output.files =
-BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-linux-64,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-macosx,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-32,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-64,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,ibis.managementclient=true,ibis.bytescount=true,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-linux-64,ibis.managementclient=true,ibis.bytescount=true,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-macosx,ibis.managementclient=true,ibis.bytescount=true,
+#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-32,ibis.managementclient=true,ibis.bytescount=true,
+BarnesViz.system.properties = java.library.path=lib-viz/native-windows-64,ibis.managementclient=true,ibis.bytescount=true,
 #BarnesViz.java.options =
 #BarnesViz.log4j.file =
 #BarnesViz.memory.size =
@@ -49,7 +49,7 @@ BarnesRun2.arguments = -so,-remote-viz,-dt,0.03125,-it,50000,-eps,0.025,-theta,1
 BarnesRun2.libs = lib-server,lib-satin,lib-barnes
 BarnesRun2.input.files = data/intertain-251.data,ibis.properties
 #BarnesRun2.output.files =
-BarnesRun2.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,
+BarnesRun2.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,ibis.managementclient=true,ibis.bytescount=true,
 #BarnesRun2.java.options =
 #BarnesRun2.log4j.file =
 #BarnesRun2.memory.size =

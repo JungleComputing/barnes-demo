@@ -24,28 +24,65 @@
 #default.pool.size =
 
 # Details of job "job-00"
-job-00.application.name = BarnesRun1
+job-00.application.name = BarnesViz
 job-00.process.count = 1
-job-00.cluster.name = VUDAS3
+job-00.cluster.name = local
 job-00.resource.count = 1
 #job-00.runtime =
-job-00.pool.name = default
+job-00.pool.name = barnes-viz
 #job-00.pool.size =
-
-# Details of job "job-02"
-job-02.application.name = BarnesViz
-job-02.process.count = 1
-job-02.cluster.name = local
-job-02.resource.count = 1
-#job-02.runtime =
-job-02.pool.name = barnes-viz
-#job-02.pool.size =
 
 # Details of job "job-01"
 job-01.application.name = BarnesRun1
-job-01.process.count = 16
+job-01.process.count = 1
 job-01.cluster.name = VUDAS3
-job-01.resource.count = 4
+job-01.resource.count = 1
 #job-01.runtime =
 job-01.pool.name = default
 #job-01.pool.size =
+
+
+# Details of job "job-02"
+job-02.application.name = BarnesRun1
+job-02.process.count = 16
+job-02.cluster.name = VUDAS3
+job-02.resource.count = 4
+#job-02.runtime =
+job-02.pool.name = default
+#job-02.pool.size =
+
+# Details of job "job-03"
+job-03.application.name = BarnesRun1
+job-03.process.count = 16
+job-03.cluster.name = UvADAS3
+job-03.resource.count = 4
+#job-03.runtime =
+job-03.pool.name = default
+#job-03.pool.size =
+
+# Details of job "job-04"
+job-04.application.name = BarnesRun1
+job-04.process.count = 16
+job-04.cluster.name = DelftDAS3
+job-04.resource.count = 4
+#job-04.runtime =
+job-04.pool.name = default
+#job-04.pool.size =
+
+# Details of job "job-05"
+job-05.application.name = BarnesRun1
+job-05.process.count = 16
+job-05.cluster.name = LeidenDAS3
+job-05.resource.count = 4
+#job-05.runtime =
+job-05.pool.name = default
+#job-05.pool.size =
+
+# Details of job "job-06"
+job-06.application.name = BarnesRun1
+job-06.process.count = 16
+job-06.cluster.name = MultiMediaNDAS3
+job-06.resource.count = 4
+#job-06.runtime =
+job-06.pool.name = default
+#job-06.pool.size =
