@@ -18,11 +18,11 @@
 
 # Application "BarnesRun1"
 BarnesRun1.main.class = BarnesHut
-BarnesRun1.arguments = -so,-remote-viz,-dt,0.03125,-it,50000,-eps,0.025,-theta,10,-min,32,-input,help-251-2.data,8000,64
-BarnesRun1.libs = lib-server,lib-satin,lib-barnes
-BarnesRun1.input.files = data/help-251-2.data,ibis.properties
+BarnesRun1.arguments = -so -remote-viz -dt 0.03125 -it 50000 -eps 0.025 -theta 5 -min 32 -input dump201 8000 64
+BarnesRun1.libs = lib-server, lib-satin, lib-barnes
+BarnesRun1.input.files = dump201, ibis.properties
 #BarnesRun1.output.files =
-BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,
+BarnesRun1.system.properties = ibis.implementation=lrmc;smartsockets, ibis.registry.central.heartbeat.interval=2, satin.stealWaitTimeout=5, satin.so.waitTime=5, satin.ft.connectTimeout=5,
 #BarnesRun1.java.options =
 #BarnesRun1.log4j.file =
 #BarnesRun1.memory.size =
@@ -31,7 +31,7 @@ BarnesRun1.system.properties = ibis.registry.central.heartbeat.interval=2,satin.
 # Note: as described here, it only works locally.
 BarnesViz.main.class = viz.Visualization
 BarnesViz.arguments = Ibis
-BarnesViz.libs = lib-server,lib-viz
+BarnesViz.libs = lib-server, lib-viz
 #BarnesViz.input.files =
 #BarnesViz.output.files =
 BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
@@ -45,11 +45,11 @@ BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
 
 # Application "BarnesRun2"
 BarnesRun2.main.class = BarnesHut
-BarnesRun2.arguments = -so,-remote-viz,-dt,0.03125,-it,50000,-eps,0.025,-theta,10,-min,32,-input,intertain-251-2.data,8000,64
-BarnesRun2.libs = lib-server,lib-satin,lib-barnes
-BarnesRun2.input.files = data/intertain-251.data,ibis.properties
-#BarnesRun2.output.files =
-BarnesRun2.system.properties = ibis.registry.central.heartbeat.interval=2,satin.stealWaitTimeout=5,satin.so.waitTime=5,satin.ft.connectTimeout=5,
+BarnesRun2.arguments = -so -reversed -dump dump -dt 0.03125 -it 200 -eps 0.025 -theta 5 -min 32 -input banner.anyone.data 8000 64
+BarnesRun2.libs = lib-server, lib-satin, lib-barnes
+BarnesRun2.input.files = banner.anyone.data, ibis.properties
+BarnesRun2.output.files = dump201
+BarnesRun2.system.properties = ibis.registry.central.heartbeat.interval=2, satin.stealWaitTimeout=5, satin.so.waitTime=5, satin.ft.connectTimeout=5,
 #BarnesRun2.java.options =
 #BarnesRun2.log4j.file =
 #BarnesRun2.memory.size =
