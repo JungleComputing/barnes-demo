@@ -16,16 +16,16 @@
 # (* = comma separated list of items)
 
 
-# Application "BarnesRun1"
-BarnesRun1.main.class = BarnesHut
-BarnesRun1.arguments = -so -remote-viz -dt 0.03125 -it 50000 -eps 0.025 -theta 5 -min 32 -input dump201 8000 64
-BarnesRun1.libs = lib-server, lib-satin, lib-barnes
-BarnesRun1.input.files = dump201, ibis.properties
-#BarnesRun1.output.files =
-BarnesRun1.system.properties = ibis.implementation=lrmc;smartsockets, ibis.registry.central.heartbeat.interval=2, satin.stealWaitTimeout=5, satin.so.waitTime=5, satin.ft.connectTimeout=5,
-#BarnesRun1.java.options =
-#BarnesRun1.log4j.file =
-#BarnesRun1.memory.size =
+# Application "Barnes"
+Barnes.main.class = BarnesHut
+Barnes.arguments = -so -remote-viz -dt 0.0625 -it 50000 -eps 0.025 -theta 10 -min 128 -input dump101 8000 64
+Barnes.libs = lib-server, lib-satin, lib-barnes
+Barnes.input.files = dump101, ibis.properties
+#Barnes.output.files =
+Barnes.system.properties = ibis.implementation=lrmc;smartsockets, ibis.bytescount=true, ibis.managementclient=true, ibis.registry.central.heartbeat.interval=10, satin.stealWaitTimeout=10, satin.so.waitTime=5, satin.ft.connectTimeout=5, satin.keepIntraConnections=false, satin.maxConnections=128
+#Barnes.java.options =
+#Barnes.log4j.file =
+#Barnes.memory.size =
 
 # Application "BarnesViz"
 # Note: as described here, it only works locally.
@@ -43,13 +43,13 @@ BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
 #BarnesViz.log4j.file =
 #BarnesViz.memory.size =
 
-# Application "BarnesRun2"
-BarnesRun2.main.class = BarnesHut
-BarnesRun2.arguments = -so -reversed -dump dump -dt 0.03125 -it 200 -eps 0.025 -theta 5 -min 32 -input banner.anyone.data 8000 64
-BarnesRun2.libs = lib-server, lib-satin, lib-barnes
-BarnesRun2.input.files = banner.anyone.data, ibis.properties
-BarnesRun2.output.files = dump201
-BarnesRun2.system.properties = ibis.registry.central.heartbeat.interval=2, satin.stealWaitTimeout=5, satin.so.waitTime=5, satin.ft.connectTimeout=5,
-#BarnesRun2.java.options =
-#BarnesRun2.log4j.file =
-#BarnesRun2.memory.size =
+# Application "BarnesReversed"
+BarnesReversed.main.class = BarnesHut
+BarnesReversed.arguments = -so -reversed -dump dump -dt 0.0625 -it 100 -eps 0.025 -theta 10 -min 128 -input banner.help.data 8000 64
+BarnesReversed.libs = lib-server, lib-satin, lib-barnes
+BarnesReversed.input.files = banner.help.data, ibis.properties
+BarnesReversed.output.files = dump101
+BarnesReversed.system.properties = ibis.registry.central.heartbeat.interval=2, satin.stealWaitTimeout=5, satin.so.waitTime=5, satin.ft.connectTimeout=5, ibis.implementation=lrmc;smartsockets,
+#BarnesReversed.java.options =
+#BarnesReversed.log4j.file =
+#BarnesReversed.memory.size =

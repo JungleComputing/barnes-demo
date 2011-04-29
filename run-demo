@@ -1,2 +1,2 @@
 export DEPLOY_HOME=`pwd`
-bin/ibis-deploy-gui -r barnes-workspace
+bin/ibis-deploy-gui barnes-workspace
