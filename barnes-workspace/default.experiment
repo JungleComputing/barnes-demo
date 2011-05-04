@@ -30,7 +30,7 @@ job-00.cluster.name = DAS3-VU
 job-00.resource.count = 8
 #job-00.runtime =
 job-00.pool.name = default
-# job-00.pool.size = 32
+job-00.pool.size = 32
 
 # Details of job "job-01"
 job-01.application.name = Barnes
@@ -39,7 +39,7 @@ job-01.cluster.name = DAS3-UvA
 job-01.resource.count = 8
 #job-01.runtime =
 job-01.pool.name = default
-# job-01.pool.size = 32
+job-01.pool.size = 32
 
 # Details of job "job-02"
 job-02.application.name = Barnes
@@ -48,7 +48,7 @@ job-02.cluster.name = DAS3-Delft
 job-02.resource.count = 8
 #job-02.runtime =
 job-02.pool.name = default
-# job-02.pool.size = 32
+job-02.pool.size = 32
 
 # Details of job "job-03"
 job-03.application.name = BarnesViz

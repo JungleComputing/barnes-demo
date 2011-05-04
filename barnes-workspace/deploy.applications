@@ -18,11 +18,11 @@
 
 # Application "Barnes"
 Barnes.main.class = BarnesHut
-Barnes.arguments = -so -remote-viz -dt 0.0625 -it 50000 -eps 0.025 -theta 10 -min 128 -input dump101 8000 64
+Barnes.arguments = -so -remote-viz -dt 0.0625 -it 50000 -eps 0.025 -theta 10 -min 128 -input /home/ceriel/dump101 8000 64
 Barnes.libs = lib-server, lib-satin, lib-barnes
-Barnes.input.files = dump101, ibis.properties
+Barnes.input.files = ibis.properties
 #Barnes.output.files =
-Barnes.system.properties = ibis.implementation=lrmc;smartsockets, ibis.bytescount=true, ibis.managementclient=true, ibis.registry.central.heartbeat.interval=10, satin.stealWaitTimeout=10, satin.so.waitTime=5, satin.ft.connectTimeout=5, satin.keepIntraConnections=false, satin.maxConnections=128
+Barnes.system.properties = ibis.implementation=lrmc;smartsockets, ibis.bytescount=true, ibis.managementclient=true, ibis.registry.central.heartbeat.interval=10, satin.stealWaitTimeout=10, satin.so.waitTime=5, satin.ft.connectTimeout=5, satin.keepIntraConnections=false, satin.maxConnections=128, satin.closed=true
 #Barnes.java.options =
 #Barnes.log4j.file =
 #Barnes.memory.size =
