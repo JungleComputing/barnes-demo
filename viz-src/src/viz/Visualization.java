@@ -13,8 +13,21 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
+
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
@@ -95,8 +108,128 @@ public class Visualization implements GLEventListener, MouseListener,
 
     Snapshot snapshot;
 
+    //Methods to load native libraries depending on OS and architecture
+    private String arch() {
+        String a = System.getProperty("os.arch");
+        if("amd64".equals(a) || "x86_64".equals(a)) {
+            return "amd64";
+        }
+        return "i586";
+    }
+    
+    private String getNativeJarName(String os) {   
+    	String prefix = "-natives-";
+    	
+        if (os.indexOf("nt") >= 0 || os.indexOf("win") >= 0) {
+        	 return prefix+"windows-"+arch()+".jar";
+        }
+        if (os.indexOf( "mac" ) >= 0) {
+        	 return prefix+"macosx-universal.jar";
+        }
+        if (os.indexOf( "nix" ) >= 0 || os.indexOf( "nux" ) >= 0) {
+        	return prefix+"linux-"+arch()+".jar";
+        }
+       return null;
+    }
+
+    private String[] getNativeLibNames(File jarFile) throws IOException {    	
+    	JarFile jar = new JarFile(jarFile);	    
+	    Enumeration<JarEntry> entries = jar.entries(); 
+	    ArrayList<String> fileNames = new ArrayList<String>();
+	    
+	    while (entries.hasMoreElements()) {
+	    	ZipEntry z = entries.nextElement();
+	    	String entryName = z.getName();
+	    	
+	    	if (entryName.indexOf("META") < 0) {
+	    		fileNames.add(entryName);
+	    	}
+	    }
+        return fileNames.toArray(new String[0]);
+    }
+    
+    private File makeNativeDir() throws IOException {   	
+    	File tmpdir = new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"lib-viz"+System.getProperty("file.separator")+"natives");
+   	
+        if(!tmpdir.mkdir() && !tmpdir.exists()) {
+            throw new IOException("Could not create temp directory: " + tmpdir.getAbsolutePath());
+        }
+        
+        return tmpdir;
+    }
+    
+    private void extractNativeLibs() throws IOException, URISyntaxException {
+    	String filesep = System.getProperty("file.separator");
+    	String os = System.getProperty("os.name").toLowerCase();
+    	String dirname = System.getProperty("user.dir") + filesep + "lib-viz";
+    	
+    	String[] prefixes = { "jogl", "gluegen-rt", "nativewindow", "newt" };
+    	    	
+    	File tmpdir = makeNativeDir();
+    	String tmpPath = String.format(tmpdir.getAbsolutePath());
+    	
+    	HashMap<File, File[]> jarStore = new HashMap<File, File[]>();
+    	
+    	for (String prefix : prefixes) {
+    		//Select the correct jar file based on OS and architecture    		
+	        String jarname = dirname + filesep + prefix + getNativeJarName(os); 
+	    	
+	        File nativeJar = new File(jarname);
+	        
+	        String[] nativeLibNames =  getNativeLibNames(nativeJar);
+	        File[] nativeLibs = new File[nativeLibNames.length];
+	        	        
+	        for (int i = 0; i < nativeLibNames.length; i++) {
+	        	nativeLibs[i] = new File(tmpPath + filesep + nativeLibNames[i]);
+	        }
+	        
+	        jarStore.put(nativeJar, nativeLibs);
+    	}
+    	
+    	for (Entry<File, File[]> entry : jarStore.entrySet()) {
+    		for (File file : entry.getValue()) {
+    			extractNativeLib(entry.getKey(), file);
+    		}		
+    	}        
+    }
+    
+    private void extractNativeLib(File file, File target) throws IOException, URISyntaxException { 
+    	JarFile jar = new JarFile(file);
+        ZipEntry z = jar.getEntry(target.getName());
+        if(z == null) {
+        	throw new UnsatisfiedLinkError("Could not find library: "+target.getName());
+        }
+
+        InputStream in = jar.getInputStream(z);
+        try {
+            OutputStream out = new BufferedOutputStream(
+                new FileOutputStream(target));
+            try {
+                byte[] buf = new byte[2048];
+                for(;;) {
+                    int n = in.read(buf);
+                    if(n < 0) {
+                        break;
+                    }
+                    out.write(buf, 0, n);
+                }
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
+    }    
+
     private Visualization(String model) {
+        try {
+            extractNativeLibs();
+        } catch (Throwable e) {
+            System.err.println("Could not extract native libs. Continuing, but this will probably fail.");
+        }
+
         initScreen();
+
         boolean fromFile = false;
 
         if (model.equals("Simple")) {

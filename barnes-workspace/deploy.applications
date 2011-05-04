@@ -34,11 +34,7 @@ BarnesViz.arguments = Ibis
 BarnesViz.libs = lib-server, lib-viz
 #BarnesViz.input.files =
 #BarnesViz.output.files =
-BarnesViz.system.properties = java.library.path=lib-viz/native-linux-32,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-linux-64,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-macosx,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-32,
-#BarnesViz.system.properties = java.library.path=lib-viz/native-windows-64,
+BarnesViz.system.properties = java.library.path=lib-viz/natives,
 #BarnesViz.java.options =
 #BarnesViz.log4j.file =
 #BarnesViz.memory.size =
